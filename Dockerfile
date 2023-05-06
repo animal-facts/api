@@ -5,11 +5,11 @@ FROM python:latest
 WORKDIR /code
 
 # Copy requirements to /WORKDIR
-COPY ./requirements.txt /code/
+COPY ./requirements.txt /code
 
 # Install dependencies
 RUN python3 -m pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-# Copy the API source code to WORKDIR
-COPY ./src /code/src
-CMD [ "python3", "-m", "src" ]
+COPY . /code
+
+CMD ["python", "-m", "src"]
