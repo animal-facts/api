@@ -399,5 +399,3 @@ ALTER TABLE ONLY public.kangaroos
 --
 -- PostgreSQL database dump complete
 --
-
-
