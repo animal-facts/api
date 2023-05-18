@@ -17,4 +17,3 @@ INSERT INTO animals (fact, animal) SELECT fact, 'dog' as animal FROM dogs;
 INSERT INTO animals (fact, animal) SELECT fact, 'fox' as animal FROM foxes;
 
 INSERT INTO animals (fact, animal) SELECT fact, 'kangaroo' as animal FROM kangaroos;
-

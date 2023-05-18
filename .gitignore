@@ -8,3 +8,5 @@
 # Python
 *.pyc
 __pycache__/
+
+.vscode/
