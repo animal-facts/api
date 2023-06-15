@@ -40,9 +40,7 @@ class Animal(BaseModel):
         Creates an animal.
         """
         response = httpx.post(
-            url=f"{endpoint}/",
-            json=payload,
-        )
+            url=f"{endpoint}/",json=payload,)
         the_animal = cls(**response.json())
         return the_animal, response
 
