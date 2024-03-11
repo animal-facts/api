@@ -1,6 +1,7 @@
 """
 Holds basic Animal commands.
 """
+
 import dataclasses
 import re
 from typing import Any

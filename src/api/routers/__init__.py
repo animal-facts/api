@@ -1,6 +1,7 @@
 """
 Initiate the routers.
 """
+
 # from src.api.routers.birds import router as birds_router
 # from src.api.routers.cats import router as cats_router
 # from src.api.routers.dogs import router as dogs_router

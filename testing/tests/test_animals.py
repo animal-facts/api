@@ -1,6 +1,7 @@
 """
 Testing module for animal fact endpoints.
 """
+
 from uuid import uuid4
 
 import httpx
