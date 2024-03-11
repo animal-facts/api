@@ -1,6 +1,7 @@
 """
 The root APP to be extracted in our tests!
 """
+
 from fastapi import FastAPI
 
 from src.api.routers import animal_router

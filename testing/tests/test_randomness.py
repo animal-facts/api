@@ -1,6 +1,7 @@
 """
 Testing module for Birds.
 """
+
 import httpx
 import pytest
 
