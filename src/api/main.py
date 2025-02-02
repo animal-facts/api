@@ -12,7 +12,7 @@ app.include_router(router=animal_router)
 
 
 @app.get(path="/", status_code=200)
-def root():
+def root() -> dict[str, str]:
     """
     This is the root path
     """

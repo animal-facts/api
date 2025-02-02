@@ -7,7 +7,7 @@ from uuid import uuid4
 import httpx
 import pytest
 
-from testing.schemas import Animal
+from testing.integration.schemas import Animal
 
 BASE_ENDPOINT = "/facts/"
 QUERY_ANIMAL = "animal"

@@ -12,4 +12,4 @@ RUN python3 -m pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY . /code
 
-CMD ["python", "-m", "src"]
+CMD ["fastapi", "run", "src/api/main.py"]
