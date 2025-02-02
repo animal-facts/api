@@ -1,4 +1,4 @@
-""" This module is meant to represent the pydantic base model for the headers of a HEAD request."""
+"""This module is meant to represent the pydantic base model for the headers of a HEAD request."""
 
 from pydantic import BaseModel, Field  # pylint:disable=no-name-in-module
 

@@ -17,8 +17,7 @@ load_dotenv()
 class DatabaseConnector(Protocol):
     """Defines an interface for database connections (for mocking in tests)."""
 
-    def connect(self, *args: Any, **kwargs: Any) -> connection:
-        ...
+    def connect(self, *args: Any, **kwargs: Any) -> connection: ...
 
 
 @dataclass

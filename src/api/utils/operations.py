@@ -3,12 +3,10 @@ Holds basic Animal commands.
 """
 
 import dataclasses
-import re
 from typing import Any
 
 from psycopg2.errors import UniqueViolation
 
-from src.api.models.animal import FactModel
 from src.api.models.http.body import AbstractRequestModel, RequestModel
 
 # from src.config.collector import Collector

@@ -1,15 +1,32 @@
 # Official python docker image
-FROM python:3.11
+FROM python:3.11 AS base
 
 # Work directory
 WORKDIR /code
 
-# Copy requirements to /WORKDIR
-COPY ./requirements.txt /code
+COPY ./requirements.txt .
 
 # Install dependencies
 RUN python3 -m pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-COPY . /code
+
+FROM base as lint
+
+COPY ./dev-requirements.txt .
+COPY ./.pre-commit-config.yaml .
+
+RUN python3 -m pip install --no-cache-dir --upgrade -r /code/dev-requirements.txt
+
+CMD ["pre-commit", "run", "--all-files"]
+
+FROM base as test
+
+COPY ./src/ /code/
+COPY ./testing/ /code/
+
+CMD ["pytest", "-s", "-vvv", "testing/unit/"]
+
+
+FROM test as production
 
 CMD ["fastapi", "run", "src/api/main.py"]
