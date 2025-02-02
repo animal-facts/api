@@ -14,7 +14,7 @@ FROM base as test
 COPY ./src/ /code/
 COPY ./testing/ /code/
 
-CMD ["pytest", "-s", "-vvv", "testing/unit/"]
+CMD ["pytest", "-s", "-vvv", "/code/testing/unit/"]
 
 
 FROM base as production
