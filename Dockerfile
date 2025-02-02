@@ -5,20 +5,18 @@ FROM python:3.11 AS base
 WORKDIR /code
 
 COPY ./requirements.txt .
+RUN python3 -m pip install --no-cache-dir --upgrade -r ./requirements.txt
 
-# Install dependencies
-RUN python3 -m pip install --no-cache-dir --upgrade -r /code/requirements.txt
+FROM base AS test
 
-FROM base as test
+COPY ./src ./src
+COPY ./testing ./testing
 
-COPY ./src/ /code/
-COPY ./testing/ /code/
-
-CMD ["pytest", "-s", "-vvv", "/code/testing/unit/"]
+CMD ["pytest", "testing/unit/", "-s", "-vvv"]
 
 
-FROM base as production
+FROM base AS production
 
 COPY . .
 
-CMD ["fastapi", "run", "/code/src/api/main.py"]
+CMD ["fastapi", "run", "src/api/main.py"]
