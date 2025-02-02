@@ -12,10 +12,10 @@ RUN python3 -m pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 FROM base as lint
 
-COPY ./dev-requirements.txt .
+COPY ./requirements-dev.txt .
 COPY ./.pre-commit-config.yaml .
 
-RUN python3 -m pip install --no-cache-dir --upgrade -r /code/dev-requirements.txt
+RUN python3 -m pip install --no-cache-dir --upgrade -r /code/requirements-dev.txt
 
 CMD ["pre-commit", "run", "--all-files"]
 
