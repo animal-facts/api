@@ -11,7 +11,8 @@ import psycopg2
 from dotenv import load_dotenv
 from psycopg2._psycopg import connection, cursor  # pylint:disable=no-name-in-module
 
-load_dotenv()
+if os.getenv("environment") == "local":
+    load_dotenv()
 
 
 class DatabaseConnector(Protocol):
@@ -29,8 +30,7 @@ class DatabaseHandle:
 
     _VALID_KEYS = {
         HOST_KEY := "POSTGRES_HOST",
-        PORT_KEY := "POSTGRES_PORT",
-        DATABASE_KEY := "POSTGRES_DATABASE",
+        DB_KEY := "POSTGRES_DB",
         USER_KEY := "POSTGRES_USER",
         PASSWORD_KEY := "POSTGRES_PASSWORD",
     }
@@ -48,8 +48,8 @@ class DatabaseHandle:
         Converts the database config into a DatabaseHandle and returns the class
         """
         return cls(
-            host=os.getenv(cls.HOST_KEY, "postgres"),
-            database=os.getenv(cls.DATABASE_KEY, ""),
+            host=os.getenv(cls.HOST_KEY, ""),
+            database=os.getenv(cls.DB_KEY, ""),
             user=os.getenv(cls.USER_KEY, ""),
             password=os.getenv(cls.PASSWORD_KEY, ""),
         )
@@ -58,6 +58,8 @@ class DatabaseHandle:
         """
         Create and return a connection to the database
         """
+        print(f"env vars: {self=}")
+
         return self.connector(
             host=self.host,
             dbname=self.database,
