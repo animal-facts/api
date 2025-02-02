@@ -59,10 +59,10 @@ class DatabaseHandle:
         Create and return a connection to the database
         """
         return self.connector(
-            self.host,
-            self.database,
-            self.user,
-            self.password,
+            host=self.host,
+            dbname=self.database,
+            user=self.user,
+            password=self.password,
         )
 
 
