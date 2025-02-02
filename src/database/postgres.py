@@ -58,8 +58,6 @@ class DatabaseHandle:
         """
         Create and return a connection to the database
         """
-        print(f"env vars: {self=}")
-
         return self.connector(
             host=self.host,
             dbname=self.database,

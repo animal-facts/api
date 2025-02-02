@@ -20,14 +20,7 @@ class Operator:
     Allows the api to make CRUD operations to the postgresDB.
     """
 
-    __AVAILABLE_TABLES = {
-        ANIMAL_TABLE := "animals"
-        # BIRDS_TABLE := "birds",
-        # CATS_TABLE := "cats",
-        # DOGS_TABLE := "dogs",
-        # FOXES_TABLE := "foxes",
-        # KANGAROOS_TABLE := "kangaroos",
-    }
+    __AVAILABLE_TABLES = {ANIMAL_TABLE := "animals"}
     __VALID_PROPERTIES = {
         ID := "id",
         FACT := "fact",
