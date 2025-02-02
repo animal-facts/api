@@ -18,8 +18,8 @@ jobs:
       - name: Build Lint Image
         run: docker build --target=lint -t fastapi-lint .
 
-      - name: Run Linter
-        run: docker run --rm fastapi-lint
+      - name: Run Linter with Mounted .git Directory
+        run: docker run --rm -v $(pwd)/.git:/code/.git fastapi-lint
 
   unit-tests:
     runs-on: ubuntu-latest
